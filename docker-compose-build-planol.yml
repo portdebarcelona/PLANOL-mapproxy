@@ -1,0 +1,24 @@
+services:
+   mapproxy:
+    image: registry-planol.portdebarcelona.cat/planolport/mapproxy
+    build:
+      context: .
+      args:
+        - MAPPROXY_VERSION=<6.0.0
+    container_name: mapproxy
+    volumes:
+      - c:/data:/dades
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    environment:
+      - ALLOW_LISTING=True
+      - LOGGING=true
+      - MAPPROXY_DATA_DIR=/dades/mapproxy
+#      - PRODUCTION=true
+#      - PROCESSES=20
+#      - CHEAPER=16
+#      - THREADS=10
+#      - MAPPROXY_USER_ID=1000
+#      - MAPPROXY_GROUP_ID=1000
+#      - MULTI_MAPPROXY=true

@@ -1,0 +1,10 @@
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.sh text eol=lf
+*.xlsm binary
+*.png binary
+*.shp binary
+*.tif binary
+*.tiff binary
+*.jpg binary
+*.jpeg binary
