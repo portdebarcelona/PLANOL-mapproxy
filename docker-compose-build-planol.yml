@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args:
-        - MAPPROXY_VERSION=<6.0.0
+        - MAPPROXY_VERSION=<7.0.0
     container_name: mapproxy
     volumes:
       - c:/data:/dades
@@ -14,11 +14,11 @@ services:
     environment:
       - ALLOW_LISTING=True
       - LOGGING=true
-      - MAPPROXY_DATA_DIR=/dades/mapproxy
+      - MAPPROXY_DATA_DIR=${MAPPROXY_DATA_DIR:-/dades/mapproxy/fav}
 #      - PRODUCTION=true
 #      - PROCESSES=20
 #      - CHEAPER=16
 #      - THREADS=10
-#      - MAPPROXY_USER_ID=1000
-#      - MAPPROXY_GROUP_ID=1000
+      - MAPPROXY_USER_ID=${MAPPROXY_USER_ID:-1000}
+      - MAPPROXY_GROUP_ID=1000
 #      - MULTI_MAPPROXY=true
